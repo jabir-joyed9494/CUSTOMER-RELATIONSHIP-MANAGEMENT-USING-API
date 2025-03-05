@@ -44,3 +44,16 @@ input[type="submit"] {
     margin-top: 10px;
     width: 50%;
 }
+.button{
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 10px 10px 0;
+ }
+ .button a{
+     list-style-type: none;background-color: black;
+     color: aliceblue;
+     padding: 8px;
+     border: 1px solid blueviolet;
+     border-radius: 3px;
+ 
+ }

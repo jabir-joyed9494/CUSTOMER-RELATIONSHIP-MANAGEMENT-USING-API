@@ -19,6 +19,18 @@ include __DIR__ . '/../model/lead.php';
          $result = $this->leads->displayAllLeads();
          return $result;
       }
+
+      public function deleteLead($leadId){
+         return $this->leads->deleteLead($leadId);
+      }
+
+      public function getLeadById($leadId){
+         return $this->leads->getLeadById($leadId);
+      }
+
+      public function updateLead($id,$name,$email,$phone){
+         return $this->leads->updateLead($id,$name,$email,$phone);
+      }
     
    }
 
