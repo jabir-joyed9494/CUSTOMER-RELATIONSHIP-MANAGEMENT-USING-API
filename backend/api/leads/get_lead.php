@@ -11,7 +11,6 @@ include __DIR__ . '/../../classes/crm.php';
 
 $crm = new CRM();
 
-// Check if 'id' is provided
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     echo json_encode(["error" => "Lead ID missing"]);
     exit();

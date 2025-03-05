@@ -13,14 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const emailInput = document.getElementById("email");
     const phoneInput = document.getElementById("phone");
 
-    // Fetch existing lead details
     fetch(`http://localhost:8000/backend/api/leads/get_lead.php?id=${leadId}`)
         .then(response => response.json())
         .then(data => {
            
             console.log(data);
-           //console.log("joyed");
-
             leadIdInput.value = data.id;
             nameInput.value = data.name;
             emailInput.value = data.email;
@@ -48,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             console.log(data);
             alert(data.message);
-            window.location.href = "display_lead.html"; // Redirect after update
+            window.location.href = "display_lead.html"; 
         })
         .catch(error => console.error("Error updating lead:", error));
     });
