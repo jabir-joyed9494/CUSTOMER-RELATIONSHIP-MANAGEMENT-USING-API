@@ -13,7 +13,12 @@ include __DIR__ . '/../model/lead.php';
          $result = ($this->leads->addLead($name, $email, $phone));
          if($result) return true;
          else return false;
-    }
+      }
+
+      public function displayAllLeads(){
+         $result = $this->leads->displayAllLeads();
+         return $result;
+      }
     
    }
 
