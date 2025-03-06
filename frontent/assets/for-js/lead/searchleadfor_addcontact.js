@@ -16,8 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const myDataObject = { name: leadName };
 
-        fetch(`http://localhost:8000/backend/api/leads/search_lead.php?name=${leadName}`, {
-        })
+        fetch(`http://localhost:8000/backend/api/leads/search_lead.php?name=${leadName}`)
         .then(response => response.json())
         .then(data => {
             console.log("API Response:", data);

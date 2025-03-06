@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const searchForm = document.getElementById('searchLeadByName'); 
+    
     const tableContainer = document.querySelector('.tableforjs');
 
     tableContainer.style.display = 'none';
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        const myDataObject = { name: leadName };
+        // const myDataObject = { name: leadName };
 
         fetch(`http://localhost:8000/backend/api/leads/search_lead.php?name=${leadName}`)
         .then(response => response.json())
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let leadList = document.getElementById('tablebody');
             leadList.innerHTML = '';
 
-            if (data.length === undefined) {
+            if (data.length === 0) {
                 tableContainer.style.display = 'none'; 
                 alert("No matching leads found.");
                 return;

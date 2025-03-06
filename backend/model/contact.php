@@ -24,6 +24,24 @@
         }
      }
 
+     public function searchContact($name){
+      $stmt = $this->pdo->prepare("SELECT * FROM contacts WHERE name LIKE ?");
+      $stmt->execute(['%'. $name . '%']);
+      return $stmt->fetchAll(PDO:: FETCH_ASSOC);
+     }
+
+     public function displayAllContact(){
+      $stmt = $this->pdo->prepare("SELECT * FROM contacts");
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+     }
+
+     public function deleteContact($id){
+      $stmt = $this->pdo->prepare("DELETE FROM contacts WHERE id = ?");
+      $stmt->execute([$id]);
+      return true;
+     }
+
 
    }
 

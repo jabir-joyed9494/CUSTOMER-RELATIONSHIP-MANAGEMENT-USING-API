@@ -1,13 +1,14 @@
 <?php
-
+   
      require_once __DIR__ . '/../model/lead.php';
    class CRM{
       private $leads;
-      private $contacts;
+      // private $contacts;
 
       public function __construct()
       {
          $this->leads = new Lead();
+         // $this->contacts = new CONTACT();
       }
 
       public function addLead($name, $email, $phone){
@@ -35,10 +36,6 @@
 
       public function searchLeadByName($name){
           return $this->leads->searchLeadByName($name);
-      }
-
-      public function addContact($name, $email, $phone, $leadid){
-          return $this->contacts->addContact($name,$email,$phone,$leadid);
       }
     
    }

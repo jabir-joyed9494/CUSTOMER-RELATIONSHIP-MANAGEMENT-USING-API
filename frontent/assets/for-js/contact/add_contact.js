@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const urlParams = new URLSearchParams(window.location.search);
     const leadId = urlParams.get("id");
-    console.log("Lead ID:", leadId); // Check if you are getting the ID correctly.
+    console.log("Lead ID:", leadId); 
 
     const inputfield = document.getElementById('editContactForm');
     
     inputfield.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent the form from submitting and refreshing the page
+        event.preventDefault(); 
 
         let nameValue = document.getElementById('name').value;
         let emailValue = document.getElementById('email').value;
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log("Phone:", phoneValue);
         console.log("Lead ID:", leadId);
 
-        // Validate that all fields are filled
+        
         if (nameValue && emailValue && phoneValue) {
             const contactinfo = {
                 name: nameValue,
@@ -35,17 +35,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 body: JSON.stringify(contactinfo)
             })
                 .then(function (response) {
-                    if (!response.ok) {
-                        throw new Error("Network response was not ok");
-                    }
                     return response.json();
                 })
                 .then(function (data) {
                     console.log("API Response:", data);
                     alert("Lead Added Successfully!");
+                    window.location.href = "searchleadfor_addcontact.html";
                 })
                 .catch(function (error) {
-                    console.error('Errrrrrrrrrrrror:', error);
+                    console.error('Error:', error);
                     alert("Error: Unable to add contact");
                 });
 
