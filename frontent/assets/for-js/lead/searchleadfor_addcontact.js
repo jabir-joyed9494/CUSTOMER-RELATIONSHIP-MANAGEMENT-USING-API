@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const myDataObject = { name: leadName };
 
-        fetch(`http://localhost:8000/backend/api/leads/search_lead.php?name=${leadName}`)
+        fetch(`http://localhost:8000/backend/api/leads/search_lead.php?name=${leadName}`, {
+        })
         .then(response => response.json())
         .then(data => {
             console.log("API Response:", data);
@@ -39,6 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         <td>${data[i].name}</td>
                         <td>${data[i].email}</td>
                         <td>${data[i].phone}</td>
+                        <td>
+                            <a href="add_contact.html?id=${data[i].id}" class="btn btn-warning">ADD CONTACT</a>
+                        </td>
                     </tr>
                 `;
             }

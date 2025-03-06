@@ -1,8 +1,9 @@
 <?php
 
-include __DIR__ . '/../model/lead.php';
+     require_once __DIR__ . '/../model/lead.php';
    class CRM{
       private $leads;
+      private $contacts;
 
       public function __construct()
       {
@@ -30,6 +31,14 @@ include __DIR__ . '/../model/lead.php';
 
       public function updateLead($id,$name,$email,$phone){
          return $this->leads->updateLead($id,$name,$email,$phone);
+      }
+
+      public function searchLeadByName($name){
+          return $this->leads->searchLeadByName($name);
+      }
+
+      public function addContact($name, $email, $phone, $leadid){
+          return $this->contacts->addContact($name,$email,$phone,$leadid);
       }
     
    }

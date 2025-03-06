@@ -46,6 +46,12 @@ include __DIR__ . '/../config/database.php';
             $stmt = $this->pdo->prepare("UPDATE users SET name = ?, email = ?, phone = ? WHERE id = ?");
             return $stmt->execute([$name, $email, $phone, $id]);
         }
+
+        public function searchLeadByName($name){
+            $stmt = $this->pdo->prepare("SELECT * FROM users WHERE name LIKE ?");
+            $stmt->execute(['%'. $name . '%']);
+            return $stmt->fetchAll(PDO:: FETCH_ASSOC);
+        }
     }
 
 ?>
