@@ -25,5 +25,16 @@
       public function deleteContact($Id){
           return $this->contact->deleteContact($Id);
       }
+      public function getContact($Id){
+        return $this->contact->getContact($Id);
+      }
+      public function updateContact($id , $name,$email,$phone){
+        return $this->contact->updateContact($id,$name,$email,$phone);
+      }
+      public function getContactbyleadId($id){
+         return $this->contact->getContactbyleadId($id);
+      }
+
+
      }
 ?>

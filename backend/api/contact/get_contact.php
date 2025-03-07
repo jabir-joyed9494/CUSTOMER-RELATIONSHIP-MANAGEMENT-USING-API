@@ -6,5 +6,16 @@
 
    include __DIR__ . '/../../classes/crm--for-contact.php';
 
-   
+   if(!isset($_GET['id']) && empty($_GET['id'])){
+      echo json_encode(["error"=>"Contact is missing"]);
+      exit();
+   }
+
+   $crm = new CRM_CONTACT();
+   $contactId = $_GET['id'];
+   //echo json_encode(["received_data" => $contactId]);
+
+   $contact = $crm->getContact($contactId);
+
+   echo json_encode($contact);
 ?>

@@ -25,28 +25,28 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Error fetching lead:", error));
 
-   // Handle form submission
-    // document.getElementById("editLeadForm").addEventListener("submit", function (event) {
+  // Handle form submission
+    document.getElementById("editLeadForm").addEventListener("submit", function (event) {
         
-    //     event.preventDefault();
-    //     const updatedLead = {
-    //         id: leadIdInput.value,
-    //         name: nameInput.value,
-    //         email: emailInput.value,
-    //         phone: phoneInput.value
-    //     };
+        event.preventDefault();
+        const updatedLead = {
+            id: leadIdInput.value,
+            name: nameInput.value,
+            email: emailInput.value,
+            phone: phoneInput.value
+        };
 
-    //     fetch("http://localhost:8000/backend/api/leads/update_lead.php", {
-    //         method: "POST",
-    //         headers: { "Content-Type": "application/json" },
-    //         body: JSON.stringify(updatedLead)
-    //     })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         console.log(data);
-    //         alert(data.message);
-    //         window.location.href = "display_lead.html"; 
-    //     })
-    //     .catch(error => console.error("Error updating lead:", error));
-    // });
+        fetch("http://localhost:8000/backend/api/contact/update_contact.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedLead)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            alert(data.message);
+            window.location.href = "display_contact.html"; 
+        })
+        .catch(error => console.error("Error updating lead:", error));
+    });
 });

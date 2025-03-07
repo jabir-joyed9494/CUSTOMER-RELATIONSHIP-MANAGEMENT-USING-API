@@ -20,7 +20,7 @@ header('Access-Control-Allow-Headers: Content-Type');
     if (!empty($data->name) && !empty($data->email) && !empty($data->phone)) {
         $crm = new CRM();
         if ($crm->updateLead($data->id, $data->name, $data->email, $data->phone)) {
-            echo json_encode(["status" => "success", "message" => "Lead added successfully"]);
+            echo json_encode(["status" => "success", "message" => "Lead updated successfully"]);
         } else {
             error_log("API Error: Could not add lead.");
             echo json_encode(["status" => "error", "message" => "Database error while adding lead."]);

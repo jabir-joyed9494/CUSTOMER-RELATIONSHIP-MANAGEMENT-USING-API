@@ -42,6 +42,23 @@
       return true;
      }
 
+     public function getContact($id){
+      $stmt = $this->pdo->prepare("SELECT * FROM contacts WHERE id = ?");
+      $stmt->execute([$id]);
+      return $stmt->fetch(PDO::FETCH_ASSOC);
+     }
+
+     public function updateContact($id,$name,$email,$phone){
+      $stmt = $this->pdo->prepare("UPDATE contacts SET name = ?, email = ?, phone = ? WHERE id = ?");
+      return $stmt->execute([$name, $email, $phone, $id]);
+     }
+
+     public function getContactbyleadId($id){
+      $stmt = $this->pdo->prepare("SELECT * FROM contacts WHERE leadid = ?");
+      $stmt->execute([$id]);
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+     }
+
 
    }
 
