@@ -1,8 +1,8 @@
 <?php 
     class DATABASE{
-        private $host = 'localhost';
+        private $host = '127.0.0.1';
         private $dbname = 'crm_db';
-        private $username = 'joyed';
+        private $username = 'root';
         private $password = 'Joyed@1234';
         private $conn;
 
@@ -15,14 +15,16 @@
             try {
                 $this->conn = new PDO("mysql:host=".$this->host.";dbname=".$this->dbname, $this->username, $this->password);
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                
+               // echo "Database Connected Successfully";
             } catch(PDOException $e) {
-                error_log("Database Connection Error: " . $e->getMessage());  // Log error
-                die(json_encode(["status" => "error", "message" => "Database connection failed."])); // Stop script and return error
+                echo "Error" . $e->getMessage();
             }
             return $this->conn;
-         }
-         
-
+         }       
     }
+
+    // $db = new DATABASE();
+    // $db->dbconnection();
+
+    
 ?>

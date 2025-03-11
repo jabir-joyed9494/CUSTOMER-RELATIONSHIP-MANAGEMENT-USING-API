@@ -1,7 +1,7 @@
 <?php
    
      require_once __DIR__ . '/../model/lead.php';
-   //   require_once 'crm-for-contact.php';
+   //   require_once __DIR__ . '/../model/contact.php';
    class CRM{
       private $leads;
       // private $contacts;

@@ -5,7 +5,9 @@
     header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
     header("Access-Control-Allow-Headers: Content-Type");
 
-     require_once __DIR__ . '/../../classes/crm--for-contact.php';
+    //  require_once __DIR__ . '/../../classes/crm--for-contact.php';
+     require_once __DIR__ . '/../../classes/crm.php';
+
    
     if($_SERVER['REQUEST_METHOD']==='POST'){
         $data = json_decode(file_get_contents("php://input"));
